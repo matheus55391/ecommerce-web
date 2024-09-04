@@ -7,7 +7,7 @@ import {
   ShoppingCartIcon,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/core/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,9 +15,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+} from "@/components/core/ui/dropdown-menu";
+import { Input } from "@/components/core/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/core/ui/sheet";
 
 interface DefaultLayoutProps {
   children?: React.ReactNode;
