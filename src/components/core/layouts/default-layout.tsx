@@ -29,15 +29,15 @@ export const description =
 function DefaultLayout({ children }: DefaultLayoutProps) {
   const isAuthenticated = true;
   return (
-    <div className="flex min-h-screen w-full flex-col">
-      <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+    <div className="flex flex-col min-h-screen  max-w-screen min-w-screen overflow-hidden  ">
+      <header className="sticky top-0 flex h-16 items-center gap-4  bg-background px-4 md:px-6">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link
             href="#"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
           >
             <Package2 className="h-6 w-6" />
-            <span className="sr-only">Shopp.co</span>
+            <span className="sr-only md:not-sr-only">Shopp.co</span>
           </Link>
           <Link
             href="#"
@@ -131,7 +131,7 @@ function DefaultLayout({ children }: DefaultLayoutProps) {
               />
             </div>
           </form>
-          <Link href="#" className="relative" prefetch={false}>
+          <Link href="/cart" className="relative" prefetch={false}>
             <ShoppingCartIcon className="h-6 w-6" />
             <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full px-2 py-0.5 text-xs font-medium">
               3
@@ -168,10 +168,10 @@ function DefaultLayout({ children }: DefaultLayoutProps) {
           )}
         </div>
       </header>
-      <main className="flex-1">
+      <main className="flex-1 max-w-full">
         {children}
       </main>
-      <footer className="bg-muted p-6 md:py-12 w-full flex flex-row">
+      <footer className="bg-muted p-6 md:py-12 w-full flex flex-row mt-8">
      
         <div className="container max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm">
           <div className="grid gap-1">
