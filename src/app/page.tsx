@@ -56,12 +56,13 @@ export default function HomePage() {
               width="550"
               height="550"
               alt="Hero"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:aspect-square"
+              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover min-h-[300px] minw-[300px] sm:w-full lg:aspect-square"
             />
           </div>
         </div>
       </section>
       <ProductsFeaturedList />
+
     </DefaultLayout>
   );
 }

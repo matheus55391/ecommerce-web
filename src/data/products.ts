@@ -8,7 +8,7 @@ interface Product {
 }
 
 export async function getProducts(): Promise<Product[]> {
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // Simula um atraso na resposta
+    // await new Promise((resolve) => setTimeout(resolve, 2000)); // Simula um atraso na resposta
 
     return [
         { id: '200', rating: 4.5, reviewCount: 120, name: 'Camisa Casual Azul', price: 29.99 },
