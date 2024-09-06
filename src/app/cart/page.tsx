@@ -24,7 +24,7 @@ import ProductCartItemCard from "@/components/common/product-cart-item-card";
 export const description =
   "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image.";
 
-export default function HomePage() {
+export default function CartPage() {
   return (
     <DefaultLayout>
       <div className="border-t-2 mx-3 lg:mx-6 flex-1 h-full">
