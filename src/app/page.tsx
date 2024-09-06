@@ -5,9 +5,6 @@ import { Button } from "@/components/core/ui/button";
 import DefaultLayout from "@/components/core/layouts/default-layout";
 import ProductsFeaturedList from "@/components/common/products-featured-list";
 
-export const description =
-  "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image.";
-
 export default function HomePage() {
   return (
     <DefaultLayout>
