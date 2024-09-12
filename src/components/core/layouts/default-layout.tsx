@@ -29,15 +29,24 @@ export const description =
 function DefaultLayout({ children }: DefaultLayoutProps) {
   const isAuthenticated = true;
   return (
-    <div className="flex flex-col min-h-screen  max-w-screen min-w-screen overflow-hidden  ">
-      <header className="sticky top-0 flex h-16 items-center gap-4  bg-background px-4 md:px-6">
-        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+    <div className="flex flex-col min-h-screen  max-w-screen min-w-screen overflow-hidden items-center   ">
+      <div className="flex items-center text-sm justify-center py-2 bg-black text-white w-full">
+        <span className="text-xs font-extralight">
+          Sign up and get 20% off to your first order.{" "}
+          <span className="hover:cursor-pointer border-b-[1px] font-light">
+            Sign Up Now
+          </span>
+        </span>
+      </div>
+      <header className="sticky flex h-16 items-center gap-4 bg-background w-full max-w-7xl px-2 sm:px-0 ">
+        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6  ">
           <Link
             href="#"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
           >
-            <Package2 className="h-6 w-6" />
-            <span className="sr-only md:not-sr-only">Shopp.co</span>
+            <span className="sr-only md:text-xl font-black md:not-sr-only">
+              Shopp.co
+            </span>
           </Link>
           <Link
             href="#"
@@ -49,35 +58,13 @@ function DefaultLayout({ children }: DefaultLayoutProps) {
             href="#"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
-            Produtos
-          </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Sobre
-          </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Contatos
-          </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Administração
+            Promoções
           </Link>
         </nav>
         <Sheet>
           <SheetTrigger asChild>
-            <Button
-              variant="outline"
-              size="icon"
-              className="shrink-0 md:hidden"
-            >
-              <Menu className="h-5 w-5" />
+            <Button variant="ghost" size="icon" className="shrink-0 md:hidden">
+              <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
@@ -126,7 +113,7 @@ function DefaultLayout({ children }: DefaultLayoutProps) {
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Buscar por produtos..."
+                placeholder="Search for products..."
                 className="pl-8 rounded-full sm:w-[300px] md:w-[200px] lg:w-[300px]"
               />
             </div>
@@ -163,72 +150,69 @@ function DefaultLayout({ children }: DefaultLayoutProps) {
               href="#"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              <span>Entrar</span> ou <span>Cadastre-se</span>
+              <span>Sign in</span> or <span>Sign up</span>
             </Link>
           )}
         </div>
       </header>
-      <main className="flex-1 max-w-full">
-        {children}
-      </main>
-      <footer className="bg-muted p-6 md:py-12 w-full flex flex-row mt-8">
-     
-        <div className="container max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm">
+      <main className="flex-1 w-full ">{children}</main>
+      <footer className="bg-muted p-6 md:py-12 w-full flex flex-row mt-8  ">
+        <div className="container max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm  mx-auto ">
           <div className="grid gap-1">
             <h3 className="font-semibold">Sobre</h3>
             <Link href="#" prefetch={false}>
-              Quem Somos
+              Who we are
             </Link>
             <Link href="#" prefetch={false}>
-              Nossas Lojas
+              Our Story
             </Link>
             <Link href="#" prefetch={false}>
-              Carreiras
+              Our Team
             </Link>
             <Link href="#" prefetch={false}>
-              Notícias
-            </Link>
-          </div>
-          <div className="grid gap-1">
-            <h3 className="font-semibold">Produtos</h3>
-            <Link href="#" prefetch={false}>
-              Roupas
-            </Link>
-            <Link href="#" prefetch={false}>
-              Acessórios
-            </Link>
-            <Link href="#" prefetch={false}>
-              Calçados
-            </Link>
-            <Link href="#" prefetch={false}>
-              Eletrônicos
+              Careers
             </Link>
           </div>
           <div className="grid gap-1">
-            <h3 className="font-semibold">Ajuda</h3>
+            <h3 className="font-semibold">Products</h3>
             <Link href="#" prefetch={false}>
-              Atendimento
+              Clothes
             </Link>
             <Link href="#" prefetch={false}>
-              Trocas e Devoluções
+              Accessories
             </Link>
             <Link href="#" prefetch={false}>
-              Formas de Pagamento
+              Shoes
             </Link>
             <Link href="#" prefetch={false}>
-              Perguntas Frequentes
+              Electronics
+            </Link>
+          </div>
+          <div className="grid gap-1">
+            <h3 className="font-semibold">Help</h3>
+            <Link href="#" prefetch={false}>
+              Service
+            </Link>
+            <Link href="#" prefetch={false}>
+              Exchanges and Returns
+            </Link>
+            <Link href="#" prefetch={false}>
+              Payment Methods
+            </Link>
+            <Link href="#" prefetch={false}>
+              Frequently Asked Questions
             </Link>
           </div>
           <div className="grid gap-1">
             <h3 className="font-semibold">Legal</h3>
             <Link href="#" prefetch={false}>
-              Política de Privacidade
+              Privacy Policy
             </Link>
             <Link href="#" prefetch={false}>
-              Termos de Uso
+              Terms of Service
             </Link>
             <Link href="#" prefetch={false}>
-              Política de Cookies
+              Cookies Policy
             </Link>
           </div>
         </div>

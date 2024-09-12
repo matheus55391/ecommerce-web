@@ -1,10 +1,11 @@
-interface Product {
+export interface Product {
     id: string;
     imageUrl?: string;
     rating: number;
     reviewCount: number;
     name: string;
     price: number;
+
 }
 
 export async function getProducts(): Promise<Product[]> {

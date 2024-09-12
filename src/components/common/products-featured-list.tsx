@@ -21,7 +21,7 @@ export default function ProductsFeaturedList() {
 
   return (
     <section className="flex w-full py-4 items-center justify-center mb-2 ">
-      <div className="flex flex-col space-y-9  w-full px-4 items-center justify-center py-4">
+      <div className="flex flex-col space-y-9  w-full px-4 items-center justify-center py-4  max-w-7xl">
         <div className="flex justify-center">
           <h2 className="text-2xl lg:text-4xl font-black">TOP DESTAQUES</h2>
         </div>
