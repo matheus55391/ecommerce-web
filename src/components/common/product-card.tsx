@@ -1,4 +1,5 @@
-import { StarIcon } from "lucide-react";
+import { ShoppingCart, StarIcon } from "lucide-react";
+import { Button } from "../core/ui/button";
 
 interface ProductCardProps {
   id: string;
@@ -22,34 +23,38 @@ export default function ProductCard({
   }).format(price);
 
   return (
-    <div className=" flex flex-col bg-transparent  border-0 hover:cursor-pointer  ">
-      <div className="flex flex-col items-start space-y-3 ">
+    <div className=" flex flex-col bg-transparent  border-0 hover:cursor-pointer sm:items-center transition-all">
+      <div className="flex sm:flex-col sm:items-start sm:space-y-3 px-4">
         <img
-          src={imageUrl}
+          src={"/placeholder.svg"}
           width="300"
           height="300"
           alt="Product"
-          className="aspect-square overflow-hidden rounded-xl object-cover transition-all"
+          className="aspect-square overflow-hidden rounded-xl object-cover transition-all max-w-[120px] sm:max-w-[100%]  "
         />
-        <h3 className="text-sm lg:text-xl font-bold ">{productName}</h3>
+        <div className="flex flex-col px-4 sm:px-0 sm:space-y-2  w-full">
+          <div className="flex flex-col lg:flex-row   ">
+            <div className="flex flex-row items-center ">
+              <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
+              <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
+              <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
+              <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
+              <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
 
-        <div className="flex flex-col lg:flex-row items-center  ">
-          <div className="flex flex-row items-center ">
-            <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
-            <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
-            <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
-            <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
-            <StarIcon className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
-
-            <span className="text-xs lg:text-base font-medium pl-2 ">
-              {rating}<span className="font-light">/5</span>
-            </span>
+              <span className="text-xs lg:text-base font-medium pl-2 ">
+                {rating}
+                <span className="font-light">/5</span>
+              </span>
+            </div>
           </div>
+          <h3 className="text-lg lg:text-xl font-bold ">{productName}</h3>
+
+          <p className="text-sm  lg:text-xl font-semibold ">{formattedPrice}</p>
+          <Button className="w-full mt-auto">
+            <ShoppingCart className="w-4 h-4 mr-2" />
+            <span>Add to cart</span>
+          </Button>
         </div>
-        <p className="text-sm lg:text-xl font-bold ">{formattedPrice}</p>
-        {/* <Button className="inline-flex h-9 items-center w-full justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-          Comprar
-        </Button> */}
       </div>
     </div>
   );
