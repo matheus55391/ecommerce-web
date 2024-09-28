@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   CircleUser,
@@ -18,18 +20,40 @@ import {
 } from "@/components/core/ui/dropdown-menu";
 import { Input } from "@/components/core/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/core/ui/sheet";
+import { useRouter } from "next/navigation";
+import { z } from "zod";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface DefaultLayoutProps {
   children?: React.ReactNode;
 }
+
+const searchSchema = z.object({
+  searchTerm: z.string().min(1, "Search term is required"),
+});
+
+type SearchForm = z.infer<typeof searchSchema>;
 
 export const description =
   "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image.";
 
 function DefaultLayout({ children }: DefaultLayoutProps) {
   const isAuthenticated = true;
+  const router = useRouter();
+  const { register, handleSubmit } = useForm<SearchForm>({
+    resolver: zodResolver(searchSchema),
+  });
+
+  const onSubmit: SubmitHandler<SearchForm> = (data) => {
+    console.log('[onSubmit]', data);
+    if (data.searchTerm.trim()) {
+      router.push(`search/${encodeURIComponent(data.searchTerm)}`);
+    }
+  };
+
   return (
-    <div className="flex flex-col min-h-screen  max-w-screen min-w-screen overflow-hidden items-center   ">
+    <div className="flex flex-col min-h-screen  max-w-screen min-w-screen overflow-hidden items-center">
       <div className="flex items-center text-sm justify-center py-2 bg-black text-white w-full">
         <span className="text-xs font-extralight">
           Sign up and get 20% off to your first order.{" "}
@@ -38,10 +62,10 @@ function DefaultLayout({ children }: DefaultLayoutProps) {
           </span>
         </span>
       </div>
-      <header className="sticky flex h-16 items-center gap-4 bg-background w-full max-w-7xl px-2 sm:px-0 ">
-        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6  ">
+      <header className="sticky flex h-16 items-center gap-4 bg-background w-full max-w-7xl px-2 md:px-1 sm:px-1 ">
+        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link
-            href="#"
+            href="/"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
           >
             <span className="sr-only md:text-xl font-black md:not-sr-only">
@@ -108,13 +132,20 @@ function DefaultLayout({ children }: DefaultLayoutProps) {
           </SheetContent>
         </Sheet>
         <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4 space-x-2">
-          <form className="ml-auto flex-1 sm:flex-initial">
+          <form className="ml-auto flex-1 sm:flex-initial w-full sm:w-[300px] md:w-[200px] lg:w-[300px]">
             <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search for products..."
-                className="pl-8 rounded-full sm:w-[300px] md:w-[200px] lg:w-[300px]"
+                className="pl-8 rounded-full  "
+                {...register("searchTerm")}
+                onKeyDown={(e) => {
+        
+                  if (e.key === "Enter") {
+                    handleSubmit(onSubmit)();
+                  }
+                }}
               />
             </div>
           </form>

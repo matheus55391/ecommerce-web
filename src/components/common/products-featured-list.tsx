@@ -36,7 +36,7 @@ export default function ProductsFeaturedList() {
             {products?.slice(4, 8)?.map((product, index) => (
               <CarouselItem key={index} className=" md:basis-1/2 lg:basis-1/3 ">
                 <div className="">
-                  <CarouselItem className=" mx-4 mr-1" key={product.id}>
+                  <CarouselItem className="mx-4 mr-1" key={product.id}>
                     <ProductCard productName={product.name} {...product} />
                   </CarouselItem>
                 </div>
